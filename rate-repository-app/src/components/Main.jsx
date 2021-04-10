@@ -1,5 +1,4 @@
-import React from 'react';
-import Constants from 'expo-constants';
+import React, { useState } from 'react';
 import { Text, StyleSheet, View } from 'react-native';
 import { Route, Switch, Redirect } from 'react-router-native';
 import RepositoryList from './RepositoryList';

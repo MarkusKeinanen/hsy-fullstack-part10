@@ -15,8 +15,6 @@ const renderItem = ({ item }) => <RepositoryItem key={item.fullName} item={item}
 
 const RepositoryList = () => {
 	const { repositories, error, loading, refetch } = useRepositories();
-	console.log(repositories);
-	// Get the nodes from the edges array
 	const repositoryNodes = repositories !== undefined ? repositories.edges.map((edge) => edge.node) : [];
 
 	return <FlatList data={repositoryNodes} ItemSeparatorComponent={ItemSeparator} renderItem={renderItem} />;
