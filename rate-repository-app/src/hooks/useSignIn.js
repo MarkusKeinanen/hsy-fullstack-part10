@@ -1,13 +1,6 @@
 import { useMutation } from '@apollo/client';
 import { AUTHORIZE } from '../graphql/mutations';
 import useAuthStorage from '../hooks/useAuthStorage';
-// const [updateAuthor] = useMutation(UPDATE_AUTHOR, {
-//   refetchQueries: [{ query: ALL_AUTHORS }],
-//   onError: (error) => {
-//     setError(error.toString())
-//   }
-// })
-//updateAuthor({ variables: { name, setBornTo: parseInt(born) } })
 
 const useSignIn = () => {
 	const [mutate, result] = useMutation(AUTHORIZE, {
