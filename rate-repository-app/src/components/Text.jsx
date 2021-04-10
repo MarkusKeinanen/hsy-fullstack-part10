@@ -41,7 +41,6 @@ const styles = StyleSheet.create({
 });
 
 const Text = ({ color, fontSize, fontWeight, style, ...props }) => {
-	console.log(getPlatformFont());
 	const textStyle = [
 		styles.text,
 		color === 'textSecondary' && styles.colorTextSecondary,

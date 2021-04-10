@@ -2,6 +2,7 @@ import React from 'react';
 import { Text, TextInput, Pressable, View, StyleSheet, Button } from 'react-native';
 import FormikTextInput from './FormikTextInput';
 import { Formik, useField } from 'formik';
+import useSignIn from '../hooks/useSignIn';
 import * as yup from 'yup';
 
 const styles = StyleSheet.create({
@@ -36,7 +37,19 @@ const SignInForm = ({ onSubmit }) => {
 	);
 };
 
-const SignIn = ({ onSubmit }) => {
+const SignIn = () => {
+	const [signIn] = useSignIn();
+
+	const onSubmit = async (values) => {
+		const { username, password } = values;
+		try {
+			const { data } = await signIn({ username, password });
+			console.log(data);
+		} catch (e) {
+			console.log(e);
+		}
+	};
+
 	return (
 		<Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
 			{({ handleSubmit }) => <SignInForm onSubmit={handleSubmit} />}

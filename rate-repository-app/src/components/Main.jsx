@@ -19,17 +19,13 @@ const styles = StyleSheet.create({
 });
 
 const Main = () => {
-	const signInSubmit = (values) => {
-		console.log(values);
-	};
-
 	return (
 		<View style={styles.container}>
 			<AppBar />
 			<View style={styles.separator} />
 			<Switch>
 				<Route path='/signin' exact>
-					<SignIn onSubmit={(values) => signInSubmit(values)} />
+					<SignIn />
 				</Route>
 				<Route path='/' exact>
 					<RepositoryList />
