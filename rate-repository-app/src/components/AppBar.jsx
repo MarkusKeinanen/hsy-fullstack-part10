@@ -46,10 +46,8 @@ const AppBar = () => {
 	// 	console.log(token);
 	// };
 	// check();
-	console.log(loggedIn, loggedUserResult);
 
 	const signOut = async () => {
-		console.log(loggedIn);
 		if (loggedIn) {
 			await storage.removeAccessToken();
 			apolloClient.resetStore();
@@ -66,6 +64,15 @@ const AppBar = () => {
 						</Text>
 					</Link>
 				</Pressable>
+				{loggedIn && (
+					<Pressable>
+						<Link to='/create-review'>
+							<Text style={styles.textStyle} color={'white'}>
+								Create a review
+							</Text>
+						</Link>
+					</Pressable>
+				)}
 				<Pressable onPress={() => signOut()}>
 					{loggedIn ? (
 						<Text style={styles.textStyle} color={'white'}>
@@ -79,6 +86,13 @@ const AppBar = () => {
 						</Link>
 					)}
 				</Pressable>
+				{!loggedIn && (
+					<Link to='/signup'>
+						<Text style={styles.textStyle} color={'white'}>
+							Sign up
+						</Text>
+					</Link>
+				)}
 			</ScrollView>
 		</View>
 	);

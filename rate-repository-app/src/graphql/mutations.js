@@ -8,4 +8,28 @@ export const AUTHORIZE = gql`
 	}
 `;
 
+export const CREATE_USER = gql`
+	mutation runCreateUser($username: String!, $password: String!) {
+		createUser(user: { username: $username, password: $password }) {
+			id
+			username
+		}
+	}
+`;
+
+export const CREATE_REVIEW = gql`
+	mutation runCreateMutate($repositoryName: String!, $ownerName: String!, $rating: Int!, $text: String) {
+		createReview(review: { repositoryName: $repositoryName, ownerName: $ownerName, rating: $rating, text: $text }) {
+			id
+			text
+			rating
+			createdAt
+			user {
+				id
+				username
+			}
+		}
+	}
+`;
+
 // other queries...

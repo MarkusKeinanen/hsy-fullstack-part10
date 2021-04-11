@@ -2,7 +2,10 @@ import React, { useState } from 'react';
 import { Text, StyleSheet, View } from 'react-native';
 import { Route, Switch, Redirect } from 'react-router-native';
 import RepositoryList from './RepositoryList';
+import SingleRepository from './SingleRepository';
+import CreateReview from './CreateReview';
 import SignIn from './SignIn';
+import SignUp from './SignUp';
 import AppBar from './AppBar';
 import theme from '../theme';
 
@@ -26,7 +29,16 @@ const Main = () => {
 				<Route path='/signin' exact>
 					<SignIn />
 				</Route>
-				<Route path='/' exact>
+				<Route path='/signup' exact>
+					<SignUp />
+				</Route>
+				<Route path='/create-review' exact>
+					<CreateReview />
+				</Route>
+				<Route path='/repositories/:id' exact>
+					<SingleRepository />
+				</Route>
+				<Route path='(|/repositories)' exact>
 					<RepositoryList />
 				</Route>
 				<Redirect to='/' />

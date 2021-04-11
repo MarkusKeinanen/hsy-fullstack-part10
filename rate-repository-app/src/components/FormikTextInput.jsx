@@ -12,19 +12,16 @@ const styles = StyleSheet.create({
 	},
 	textInputStyle: {
 		padding: '8px',
-		borderRadius: '4px',
-		marginTop: '10px'
-	},
-	textInputStyleError: {
-		padding: '8px',
-		borderRadius: '4px',
-		marginTop: '10px'
+		borderRadius: 4,
+		marginTop: '10px',
+		borderWidth: 1,
+		borderStyle: 'solid'
 	},
 	textNormalBorder: {
-		border: '1px solid lightgray'
+		borderColor: 'lightgray'
 	},
 	textRedBorder: {
-		border: `1px solid ${theme.colors.darkRed}`
+		borderColor: `${theme.colors.darkRed}`
 	}
 });
 
@@ -33,7 +30,6 @@ const FormikTextInput = ({ name, ...props }) => {
 	const showError = meta.touched && meta.error;
 
 	const inputStyle = [styles.textInputStyle, showError ? styles.textRedBorder : styles.textNormalBorder];
-
 	return (
 		<>
 			<TextInput
