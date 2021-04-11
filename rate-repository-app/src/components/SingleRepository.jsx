@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
 	}
 });
 
-const ReviewItem = ({ review }) => {
+export const ReviewItem = ({ review }) => {
 	const date = new Date(review.createdAt);
 
 	return (

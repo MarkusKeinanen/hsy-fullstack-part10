@@ -77,4 +77,29 @@ export const GET_AUTHORIZED_USER = gql`
 	}
 `;
 
+export const GET_AUTHORIZED_USER_WITH_REVIEWS = gql`
+	query {
+		authorizedUser {
+			id
+			username
+			reviews {
+				edges {
+					node {
+						id
+						user {
+							id
+							username
+						}
+						userId
+						repositoryId
+						text
+						rating
+						createdAt
+					}
+				}
+			}
+		}
+	}
+`;
+
 // other queries...

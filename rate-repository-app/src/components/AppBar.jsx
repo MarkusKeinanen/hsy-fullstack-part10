@@ -73,6 +73,15 @@ const AppBar = () => {
 						</Link>
 					</Pressable>
 				)}
+				{loggedIn && (
+					<Pressable>
+						<Link to='/my-reviews'>
+							<Text style={styles.textStyle} color={'white'}>
+								My reviews
+							</Text>
+						</Link>
+					</Pressable>
+				)}
 				<Pressable onPress={() => signOut()}>
 					{loggedIn ? (
 						<Text style={styles.textStyle} color={'white'}>
